@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ChildWidget extends StatefulWidget {
@@ -8,6 +9,8 @@ class ChildWidget extends StatefulWidget {
 }
 
 class _ChildWidgetState extends State<ChildWidget> {
+  var _value = 0.0;
+
   @override
   void initState() {
     super.initState();
@@ -22,7 +25,13 @@ class _ChildWidgetState extends State<ChildWidget> {
 
   @override
   Widget build(BuildContext context) {
-    print('ChildWidget Build');
-    return Text('child widget');
+    return Slider(
+      value: _value,
+      onChanged: (value) {
+        setState(() {
+          _value = value;
+        });
+      },
+    );
   }
 }

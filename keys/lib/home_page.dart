@@ -1,43 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:keys/local_key/stateless_key_page.dart';
 
 import 'global_key/child_widget.dart';
-import 'global_key/switch_page.dart';
+import 'global_key/exchange_page.dart';
+import 'global_key/insert_page.dart';
 import 'local_key/stateful_key_page.dart';
+import 'local_key/stateless_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    var child = ChildWidget();
     return Scaffold(
       body: ListView(
         children: [
           _PushListItem(
-            title: 'Normal Switch',
-            pushedPage: SwitchPage(
-              child: child,
-              isGlobal: false,
+            title: 'Exchange Without Key',
+            pushedPage: ExchangePage(
+              child: ChildWidget(),
             ),
           ),
           _PushListItem(
-            title: 'Global Switch',
-            pushedPage: SwitchPage(
-              child: child,
-              isGlobal: true,
+            title: 'Exchange With LocalKey',
+            pushedPage: ExchangePage(
+              child: ChildWidget(key: UniqueKey()),
             ),
           ),
           _PushListItem(
-            title: 'Stateless without key',
-            pushedPage: StatelessKeyPage(),
+            title: 'Exchange With GlobalKey',
+            pushedPage: ExchangePage(
+              child: ChildWidget(key: GlobalKey()),
+            ),
           ),
           _PushListItem(
-            title: 'Stateful without key',
+            title: 'Insert Without Key',
+            pushedPage: InsertPage(
+              child: ChildWidget(),
+            ),
+          ),
+          _PushListItem(
+            title: 'Insert With LocalKey',
+            pushedPage: InsertPage(
+              child: ChildWidget(key: UniqueKey()),
+            ),
+          ),
+          _PushListItem(
+            title: 'Insert With GlobalKey',
+            pushedPage: InsertPage(
+              child: ChildWidget(key: GlobalKey()),
+            ),
+          ),
+          _PushListItem(
+            title: 'Exchange Stateless without LocalKey',
+            pushedPage: StatelessPage(),
+          ),
+          _PushListItem(
+            title: 'Exchange Stateful without LocalKey',
             pushedPage: StatefulKeyPage(useKey: false),
           ),
           _PushListItem(
-            title: 'Stateful with key',
+            title: 'Exchange Stateful with LocalKey',
             pushedPage: StatefulKeyPage(useKey: true),
           ),
         ],

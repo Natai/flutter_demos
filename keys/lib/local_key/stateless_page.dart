@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:keys/random_color.dart';
 
-class StatelessKeyPage extends StatefulWidget {
-  StatelessKeyPage({Key? key}) : super(key: key);
+class StatelessPage extends StatefulWidget {
+  StatelessPage({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _StatelessKeyPageState();
+  State<StatefulWidget> createState() => _StatelessPageState();
 }
 
-class _StatelessKeyPageState extends State<StatelessKeyPage> {
+class _StatelessPageState extends State<StatelessPage> {
   var _tiles = [
-    _StatelessKeyItem(),
-    _StatelessKeyItem(),
+    _StatelessItem(),
+    _StatelessItem(),
   ];
 
   @override
@@ -25,7 +25,7 @@ class _StatelessKeyPageState extends State<StatelessKeyPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.swipe),
+        child: Icon(Icons.swap_horiz),
         onPressed: _swapTiles,
       ),
     );
@@ -38,8 +38,8 @@ class _StatelessKeyPageState extends State<StatelessKeyPage> {
   }
 }
 
-class _StatelessKeyItem extends StatelessWidget {
-  _StatelessKeyItem({Key? key}) : super(key: key);
+class _StatelessItem extends StatelessWidget {
+  _StatelessItem({Key? key}) : super(key: key);
 
   final myColor = RandomColor();
 

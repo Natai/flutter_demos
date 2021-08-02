@@ -14,14 +14,14 @@ class StatefulKeyPage extends StatefulWidget {
 }
 
 class _StatefulKeyPageState extends State<StatefulKeyPage> {
-  late List<_StatelfulKeyItem> _tiles;
+  late List<_StatefulKeyItem> _tiles;
 
   @override
   void initState() {
     super.initState();
     _tiles = [
-      _StatelfulKeyItem(key: widget.useKey ? UniqueKey() : null),
-      _StatelfulKeyItem(key: widget.useKey ? UniqueKey() : null),
+      _StatefulKeyItem(key: widget.useKey ? UniqueKey() : null),
+      _StatefulKeyItem(key: widget.useKey ? UniqueKey() : null),
     ];
   }
 
@@ -36,7 +36,7 @@ class _StatefulKeyPageState extends State<StatefulKeyPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.swipe),
+        child: Icon(Icons.swap_horiz),
         onPressed: _swapTiles,
       ),
     );
@@ -49,14 +49,14 @@ class _StatefulKeyPageState extends State<StatefulKeyPage> {
   }
 }
 
-class _StatelfulKeyItem extends StatefulWidget {
-  _StatelfulKeyItem({Key? key}) : super(key: key);
+class _StatefulKeyItem extends StatefulWidget {
+  _StatefulKeyItem({Key? key}) : super(key: key);
 
   @override
-  __StatelfulKeyItemState createState() => __StatelfulKeyItemState();
+  _StatefulKeyItemState createState() => _StatefulKeyItemState();
 }
 
-class __StatelfulKeyItemState extends State<_StatelfulKeyItem> {
+class _StatefulKeyItemState extends State<_StatefulKeyItem> {
   final myColor = RandomColor();
 
   @override
